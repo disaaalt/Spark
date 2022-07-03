@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es2015",
+		"declaration": true,
+		"outDir": "./dist",
+		"resolveJsonModule": true,
+		"experimentalDecorators": true,
+		"skipLibCheck": true,
+	},
+	"include": ["src/**/*", "src/framework/**/*"]
+}

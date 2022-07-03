@@ -1,0 +1,25 @@
+{
+	"private": true,
+	"name": "spark",
+	"version": "1.0.0",
+	"description": "Scalable Discord bot scaffold - with TypeScript and Discord.js",
+	"scripts": {
+		"build": "tsc",
+		"dev": "tsc -w",
+		"start": "node ./dist/index.js"
+	},
+	"author": "leo",
+	"license": "GPL-3.0",
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.30.4",
+		"@typescript-eslint/parser": "^5.30.4",
+		"eslint": "^8.19.0",
+		"eslint-plugin-unused-imports": "^2.0.0",
+		"typescript": "^4.7.4"
+	},
+	"dependencies": {
+		"@discordjs/builders": "^0.15.0",
+		"discord.js": "^13.8.1",
+		"dotenv": "^12.0.4"
+	}
+}

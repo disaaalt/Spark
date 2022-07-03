@@ -1,0 +1,79 @@
+{
+	"env": {
+		"commonjs": true,
+		"es2021": true,
+		"node": true
+	},
+	"extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": "latest"
+	},
+	"plugins": ["@typescript-eslint", "unused-imports"],
+	"rules": {
+		"@typescript-eslint/ban-ts-comment": [
+			"error",
+			{
+				"minimumDescriptionLength": 3,
+				"ts-check": true,
+				"ts-expect-error": "allow-with-description",
+				"ts-ignore": "allow-with-description",
+				"ts-nocheck": true
+			}
+		],
+		"@typescript-eslint/default-param-last": ["error"],
+		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/no-non-null-assertion": "off",
+		"@typescript-eslint/member-ordering": [
+			"error",
+			{
+				"default": [
+					"signature",
+					"public-instance-field",
+					"protected-instance-field",
+					"private-instance-field",
+					"instance-field",
+					"public-static-field",
+					"protected-static-field",
+					"private-static-field",
+					"static-field",
+					"public-constructor",
+					"protected-constructor",
+					"private-constructor",
+					"constructor",
+					"public-instance-method",
+					"protected-instance-method",
+					"private-instance-method",
+					"instance-method",
+					"public-static-method",
+					"protected-static-method",
+					"private-static-method",
+					"static-method"
+				]
+			}
+		],
+		"@typescript-eslint/no-unused-vars": "off",
+		"unused-imports/no-unused-imports": "error",
+		"unused-imports/no-unused-vars": [
+			"warn",
+			{ "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+		],
+		"no-constant-binary-expression": ["error"],
+		"no-constructor-return": ["error"],
+		"no-duplicate-imports": ["error"],
+		"require-atomic-updates": ["error"],
+		"indent": ["error", "tab"],
+		"linebreak-style": ["error", "windows"],
+		"quotes": ["error", "double"],
+		"semi": ["error", "always"],
+		"comma-spacing": ["error", { "before": false, "after": true }],
+		"key-spacing": [
+			"error",
+			{
+				"beforeColon": false,
+				"afterColon": true
+			}
+		],
+		"object-curly-spacing": ["error", "always"]
+	}
+}
