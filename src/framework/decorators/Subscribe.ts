@@ -1,6 +1,9 @@
 import SparkEvent from "../classes/SparkEvent";
 import { SparkSubscribeOptions } from "../interfaces/SparkSubscribeOptions";
 
+/**
+ * @param {SparkSubscribeOptions} options 
+ */
 export default function Subscribe(options: SparkSubscribeOptions) {
 	return (construct) => {
 		if(!(construct.prototype instanceof SparkEvent)) return;

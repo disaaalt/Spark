@@ -1,8 +1,10 @@
 import { Client, Collection } from "discord.js";
-import { getAllFiles } from "../utilities";
-import { SparkClientOptions } from "../interfaces/SparkClientOptions";
 import MessageCommand from "./MessageCommand";
 import SlashCommand from "./SlashCommand";
+import { SparkClientOptions } from "../interfaces/SparkClientOptions";
+import SparkCondition from "./SparkCondition";
+import { getAllFiles } from "../utilities";
+
 
 /**
  * @class class that includes the client
@@ -11,6 +13,7 @@ export default class SparkClient {
 	client: Client;
 	messageCommands: Collection<string, typeof MessageCommand>;
 	slashCommands: Collection<string, typeof SlashCommand>;
+	conditions: Collection<string, typeof SparkCondition>;
 	events: any[];
 	token: string;
 
@@ -21,16 +24,19 @@ export default class SparkClient {
 	constructor(options: SparkClientOptions) {
 		if(!options) throw new Error("Please provide options in the constructor.");
 
-		global.Spark = this;
+		this.messageCommands = new Collection();
+		this.slashCommands = new Collection();
+		this.conditions = new Collection();
+		this.events = [];
+		this.token = options.token;
+
 		this.client = new Client({
 			intents: options?.intents,
 			partials: options?.partials,
 			presence: options?.presense
 		});
-		this.messageCommands = new Collection();
-		this.slashCommands = new Collection();
-		this.events = [];
-		this.token = options.token;
+
+		global.Spark = this;
 
 		// Load components
 		if(options.componentsDirectory) this.loadComponents(options.componentsDirectory);
@@ -42,9 +48,6 @@ export default class SparkClient {
 	 * @returns {Promise<void>}
 	 */
 	public async loadComponents(directory: string): Promise<void> {
-		// Validate directory
-		// if(!existsSync(directory)) throw new ReferenceError("Invalid folder provided. Please ensure the directory is correct before loading components inside.");
-
 		const files = getAllFiles(directory)
 			.filter((file) => file.endsWith(".ts") && !file.endsWith(".d.ts"))
 			.map((dir) =>
@@ -62,7 +65,6 @@ export default class SparkClient {
 				});
 		}
 
-		// Load events
 		this.registerEvents();
 	}
 

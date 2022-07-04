@@ -8,5 +8,5 @@
 		"experimentalDecorators": true,
 		"skipLibCheck": true,
 	},
-	"include": ["src/**/*", "src/framework/**/*"]
+	"include": ["src/**/*"]
 }

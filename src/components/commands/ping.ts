@@ -1,12 +1,13 @@
 import { Client, Message, MessageEmbed } from "discord.js";
-import MessageCommand from "../../framework/classes/MessageCommand";
 import Command from "../../framework/decorators/Command";
+import MessageCommand from "../../framework/classes/MessageCommand";
 
 @Command({
 	name: "ping",
 	description: "Tells information about the bot's websocket ping",
 	aliases: ["pong"],
-	category: "info"
+	category: "info",
+	conditions: ["DeveloperOnly"]
 })
 export default class PingCommand extends MessageCommand {
 	run(client: Client, message: Message, _args: string[]): void {

@@ -61,6 +61,7 @@
 		"no-constant-binary-expression": ["error"],
 		"no-constructor-return": ["error"],
 		"no-duplicate-imports": ["error"],
+		"sort-imports": "error",
 		"require-atomic-updates": ["error"],
 		"indent": ["error", "tab"],
 		"linebreak-style": ["error", "windows"],

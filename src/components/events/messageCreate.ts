@@ -1,8 +1,13 @@
+import * as Config from "../../../config.json";
+import * as chalk from "chalk";
+import * as moment from "moment";
+
 import { Client, Message, TextChannel } from "discord.js";
+import SparkCondition from "../../framework/classes/SparkCondition";
 import SparkEvent from "../../framework/classes/SparkEvent";
 import Subscribe from "../../framework/decorators/Subscribe";
 
-const prefix = process.env.PREFIX;
+const prefix = Config.prefix;
 
 @Subscribe({
 	name: "messageCreate",
@@ -22,7 +27,18 @@ export default class ReadyEvent extends SparkEvent {
 		
 		if (!command?.run) return;
 
-		console.log(`${message.author.tag} in #${(message.channel as TextChannel).name} used: ${message.content}`);
+		// Check conditions
+		if(command.options.conditions?.length !== 0) {
+			for(const condition of command.options.conditions) {
+				const attempt = global.Spark.conditions.get(condition);
+				if(attempt) {
+					if (!(attempt as SparkCondition).messageCommandRun(message))
+						return (attempt as SparkCondition).messageCommandFail(message);
+				}
+			}
+		}	
+	
+		console.log(chalk.blue(`${chalk.blueBright.bold(`CMD [${moment().format("LTS")}]`)} ${chalk.bold(message.author.tag)} in #${(message.channel as TextChannel).name} used: ${message.content}`));
 
 		command.run(client, message, args)?.catch(() => {
 			//TODO: Custom error handler

@@ -1,5 +1,5 @@
+import { Client, CommandInteraction } from "discord.js";
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { Client, Interaction } from "discord.js";
 import { SparkCommandOptions } from "../interfaces/SparkCommandOptions";
 
 export default abstract class SlashCommand {
@@ -7,7 +7,7 @@ export default abstract class SlashCommand {
 	abstract register(): SlashCommandBuilder;
 	abstract run(
 		client: Client,
-		interaction: Interaction,
+		interaction: CommandInteraction,
 		args: string[]
 	): any;
 }

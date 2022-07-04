@@ -3,8 +3,7 @@ import SlashCommand from "../classes/SlashCommand";
 import { SparkCommandOptions } from "../interfaces/SparkCommandOptions";
 
 /**
- * Decorator for a Spark command
- * @param {CommandOptions} options 
+ * @param {SparkCommandOptions} options 
  */
 export default function Command(options: SparkCommandOptions) {
 	// Check if Spark is already initialised

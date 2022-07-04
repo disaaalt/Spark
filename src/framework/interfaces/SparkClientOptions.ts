@@ -6,4 +6,11 @@ export interface SparkClientOptions {
 	intents: Intents;
 	partials?: PartialTypes[];
 	presense?: PresenceData
+	interactions?: SparkClientInteractions
+}
+
+interface SparkClientInteractions {
+	guild: boolean;
+	global: boolean;
+	guildID?: string;
 }
