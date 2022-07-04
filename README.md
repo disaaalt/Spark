@@ -11,9 +11,9 @@ This template was written in TypeScript, using the [discord.js](https://discord.
 I have already included a basic command, event and "condition" (a system that controls command execution). This template is still WIP - please do not use it for production.
 
 ## TODO:
-- [] Slash commands
-- [] Custom error handlers
-- [] Tests
+- [ ] Slash commands
+- [ ] Custom error handlers
+- [ ] Tests
 
 
 
