@@ -1,4 +1,4 @@
 export interface SparkSubscribeOptions {
-	name: string;
+	event: string;
 	once?: boolean; 
 }

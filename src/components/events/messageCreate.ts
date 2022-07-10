@@ -1,18 +1,17 @@
 import * as Config from "../../../config.json";
 import * as chalk from "chalk";
-import * as moment from "moment";
-
 import { Client, Message, TextChannel } from "discord.js";
 import SparkCondition from "../../framework/classes/SparkCondition";
 import SparkEvent from "../../framework/classes/SparkEvent";
 import Subscribe from "../../framework/decorators/Subscribe";
+import { log } from "../../framework/utilities";
 
 const prefix = Config.prefix;
 
 @Subscribe({
-	name: "messageCreate",
+	event: "messageCreate",
 })
-export default class ReadyEvent extends SparkEvent {
+export default class MessageCreateEvent extends SparkEvent {
 	fire(client: Client, message: Message): any {
 		if (!["GUILD_TEXT", "GUILD_NEWS", "GUILD_VOICE", "GUILD_VOICE"].includes(message.channel.type)) return;
 		if (message.author.bot) return;
@@ -38,10 +37,11 @@ export default class ReadyEvent extends SparkEvent {
 			}
 		}	
 	
-		console.log(chalk.blue(`${chalk.blueBright.bold(`CMD [${moment().format("LTS")}]`)} ${chalk.bold(message.author.tag)} in #${(message.channel as TextChannel).name} used: ${message.content}`));
+		log("CMD", `${chalk.bold(message.author.tag, `(${message.author.id})`)} in #${(message.channel as TextChannel).name} used ${name}`);
 
-		command.run(client, message, args)?.catch(() => {
+		command.run(client, message, args)?.catch((e) => {
 			//TODO: Custom error handler
+			console.error(e);
 		});
 	}
 }

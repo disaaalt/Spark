@@ -19,7 +19,7 @@ export default class SparkClient {
 
 	/**
 	 * @constructor
-	 * @param options options for the client, should be a valid SparkClientOptions object.
+	 * @param {SparkClientOptions} options options for the client
 	 */
 	constructor(options: SparkClientOptions) {
 		if(!options) throw new Error("Please provide options in the constructor.");
@@ -60,7 +60,7 @@ export default class SparkClient {
 		for await(const path of files) { 
 			await import("../../" + path)
 				.catch((e) => {
-					console.log(e);
+					console.error(e);
 					// TODO: Catching failed commands
 				});
 		}
@@ -70,7 +70,7 @@ export default class SparkClient {
 
 	/**
 	 * Makes the bot log in
-	 * @param {string} token token of the bot
+	 * @param {string} [token] token of the bot
 	 * @returns {Promise<string>}
 	 */
 	public login(token?: string): Promise<string> {
@@ -85,8 +85,8 @@ export default class SparkClient {
 		// Sort for on or onces
 		const ons = new Collection<string, any[]>(), onces = new Collection<string, any[]>();
 		for(const ev of global.Spark.events) {
-			if(ev.options.once) onces.set(ev.options.name, (onces.get(ev.options.name) ?? []).concat([ev]));
-			else ons.set(ev.options.name, (ons.get(ev.options.name) ?? []).concat([ev]));
+			if(ev.options.once) onces.set(ev.options.event, (onces.get(ev.options.event) ?? []).concat([ev]));
+			else ons.set(ev.options.event, (ons.get(ev.options.event) ?? []).concat([ev]));
 		}
 		
 		// Bind to eventemitter
