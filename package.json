@@ -1,7 +1,7 @@
 {
 	"private": true,
 	"name": "spark",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Scalable Discord bot scaffold - with TypeScript and Discord.js",
 	"scripts": {
 		"build": "tsc",
