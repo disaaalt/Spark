@@ -23,8 +23,6 @@ export default function Command(options: SparkCommandOptions) {
 		if(construct.prototype instanceof MessageCommand) {
 			global.Spark.messageCommands.set(options.name, command);
 		} else {
-			// TODO: implement registering slash commands & validating
-			throw new Error("not implemented");
 			global.Spark.slashCommands.set(options.name, command);
 		}
 	};

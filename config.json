@@ -1,4 +1,12 @@
 {
 	"prefix": "!",
-	"developers": ["343563042866331648"]
+	"developers": ["343563042866331648"],
+	"slash": {
+		"scope": "global"
+	},
+	"console": {
+		"cmd": "blueBright",
+		"info": "yellow",
+		"warn": "yellow"
+	}
 }

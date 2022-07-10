@@ -2,9 +2,11 @@ lockfileVersion: 5.4
 
 specifiers:
   '@discordjs/builders': ^0.15.0
+  '@discordjs/rest': ^0.5.0
   '@typescript-eslint/eslint-plugin': ^5.30.4
   '@typescript-eslint/parser': ^5.30.4
   chalk: ^4.1.2
+  discord-api-types: ^0.36.1
   discord.js: ^13.8.1
   dotenv: ^12.0.4
   eslint: ^8.19.0
@@ -14,7 +16,9 @@ specifiers:
 
 dependencies:
   '@discordjs/builders': 0.15.0
+  '@discordjs/rest': 0.5.0
   chalk: 4.1.2
+  discord-api-types: 0.36.1
   discord.js: 13.8.1
   dotenv: 12.0.4
   moment: 2.29.3
@@ -55,6 +59,18 @@ packages:
   /@discordjs/collection/0.7.0:
     resolution: {integrity: sha512-R5i8Wb8kIcBAFEPLLf7LVBQKBDYUL+ekb23sOgpkpyGT+V4P7V83wTxcsqmX+PbqHt4cEHn053uMWfRqh/Z/nA==}
     engines: {node: '>=16.9.0'}
+    dev: false
+
+  /@discordjs/rest/0.5.0:
+    resolution: {integrity: sha512-S4E1YNz1UxgUfMPpMeqzPPkCfXE877zOsvKM5WEmwIhcpz1PQV7lzqlEOuz194UuwOJLLjQFBgQELnQfCX9UfA==}
+    engines: {node: '>=16.9.0'}
+    dependencies:
+      '@discordjs/collection': 0.7.0
+      '@sapphire/async-queue': 1.3.1
+      '@sapphire/snowflake': 3.2.2
+      discord-api-types: 0.33.5
+      tslib: 2.4.0
+      undici: 5.6.0
     dev: false
 
   /@eslint/eslintrc/1.3.0:
@@ -117,6 +133,11 @@ packages:
 
   /@sapphire/shapeshift/3.4.0:
     resolution: {integrity: sha512-uV+vErdfbxCgnjgcwkPDADlyS40I20L57YPy254LKbRNfLCg4/ymy510aNSGhLhq/dpNU0s1fQnTbI2YAetzsA==}
+    engines: {node: '>=v14.0.0', npm: '>=7.0.0'}
+    dev: false
+
+  /@sapphire/snowflake/3.2.2:
+    resolution: {integrity: sha512-ula2O0kpSZtX9rKXNeQMrHwNd7E4jPDJYUXmEGTFdMRfyfMw+FPyh04oKMjAiDuOi64bYgVkOV3MjK+loImFhQ==}
     engines: {node: '>=v14.0.0', npm: '>=7.0.0'}
     dev: false
 
@@ -408,6 +429,10 @@ packages:
 
   /discord-api-types/0.33.5:
     resolution: {integrity: sha512-dvO5M52v7m7Dy96+XUnzXNsQ/0npsYpU6dL205kAtEDueswoz3aU3bh1UMoK4cQmcGtB1YRyLKqp+DXi05lzFg==}
+    dev: false
+
+  /discord-api-types/0.36.1:
+    resolution: {integrity: sha512-PTDinUU574hXA9Ko9wrftL1iww1raNiRVKjuPIWQ5Li1g7vQPArpZWw9x01kh/IXLPdzSAJ6H8T0eAYzxzFzIg==}
     dev: false
 
   /discord.js/13.8.1:
@@ -1035,6 +1060,11 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
+
+  /undici/5.6.0:
+    resolution: {integrity: sha512-mc+8SY1fXubTrdx4CXDkeFFGV8lI3Tq4I/70U1V8Z6g4iscGII0uLO7CPnDt56bXEbvaKwo2T2+VrteWbZiXiQ==}
+    engines: {node: '>=12.18'}
+    dev: false
 
   /uri-js/4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}

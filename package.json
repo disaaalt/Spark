@@ -6,7 +6,7 @@
 	"scripts": {
 		"build": "tsc",
 		"dev": "tsc -w",
-		"start": "node ./dist/src/index.js",
+		"start": "tsc && node ./dist/src/index.js",
 		"lint": "eslint src --cache"
 	},
 	"author": "leo",
@@ -20,7 +20,9 @@
 	},
 	"dependencies": {
 		"@discordjs/builders": "^0.15.0",
+		"@discordjs/rest": "^0.5.0",
 		"chalk": "^4.1.2",
+		"discord-api-types": "^0.36.1",
 		"discord.js": "^13.8.1",
 		"dotenv": "^12.0.4",
 		"moment": "^2.29.3"
