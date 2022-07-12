@@ -1,7 +1,7 @@
 import SparkCondition from "../classes/SparkCondition";
 
 /**
- * @param {object} options 
+ * @param {string} name 
  */
 export default function Condition(name: string) {
 	return (construct) => {
