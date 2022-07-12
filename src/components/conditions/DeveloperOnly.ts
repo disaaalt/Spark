@@ -16,7 +16,7 @@ export default class DeveloperOnly extends SparkCondition {
 		return message.reply("This command is only usable by developers!");
 	}
 	slashCommandFail(interaction: CommandInteraction): any {
-		return interaction.followUp({ content: "This command is only usable by developers!", ephemeral: true });
+		return interaction.reply({ content: "This command is only usable by developers!", ephemeral: true });
 	}
 	
 	private isDeveloper(id: string): boolean {

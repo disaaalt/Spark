@@ -8,6 +8,7 @@ import { SlashCommandBuilder } from "@discordjs/builders";
 	description: "Tells information about the bot's websocket ping",
 	aliases: ["pong"],
 	category: "info",
+	conditions: ["DeveloperOnly"]
 })
 export default class PingCommand extends SlashCommand {
 	register(): SlashCommandBuilder {
