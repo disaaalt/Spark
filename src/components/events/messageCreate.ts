@@ -27,7 +27,7 @@ export default class MessageCreateEvent extends SparkEvent {
 		if (!command?.run) return;
 
 		// Check conditions
-		if(command.options.conditions?.length !== 0) {
+		if(command.options.conditions) {
 			for(const condition of command.options.conditions) {
 				const attempt = global.Spark.conditions.get(condition);
 				if(attempt) {
